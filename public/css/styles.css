@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Playfair+Display+SC&display=swap');
+
+* {
+    /* border: .4px solid grey; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+h1{
+    font-family: 'Playfair Display SC', serif;
+}
+nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}

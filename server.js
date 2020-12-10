@@ -12,6 +12,7 @@ const app = express ();
 const db = mongoose.connection;
 const show = console.log
 show("im cool")
+const Comments = require('./models/comments.js')
 //___________________
 //Port
 //___________________
@@ -48,6 +49,8 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 
 //___________________
@@ -56,8 +59,107 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //localhost:3000 
 app.get('/' , (req, res) => {
     res.send('Hello World!');
+}); 
+// HOME
+app.get('/home', (req, res) =>{
+    res.render('Home')
+})
+// ABOUT ME
+app.get('/about', (req, res) =>{
+    res.render('About')
+})
+// CONTACT ME
+app.get('/contact', (req, res) =>{
+    res.render('Contact')
+})
+// RESUME
+app.get('/resume', (req, res) =>{
+    res.render('Resume')
+})
+//___________________
+// INDEX 
+//___________________
+app.get('/project1', (req, res) => {
+    Comments.find({}, (err, allComments) => {
+        if(!err){
+            res.render('Index', {
+                comment: allComments
+            })
+        } else {
+            res.send(err)
+        }
+    }) 
+})
+//___________________
+// NEW 
+//___________________
+app.get('/project1/new', (req, res) =>{
+    res.render('New')
+})
+//___________________
+// DESTROY 
+//___________________
+app.delete('/project1/:id', (req, res) => {
+    Comments.findByIdAndRemove(req.params.id, (err, foundComment) => {
+        if(!err){
+            res.redirect('/project1')
+        } else {
+            res.send(err);
+        }
+    })
+})
+//___________________
+// UPDATE 
+//___________________
+app.put('/project1/:id', (req, res) => {
+Comments.findByIdAndUpdate(req.params.id, req.body, (err, updatedComment) => {
+if(!err){
+    res.redirect('/project1');
+} else {
+    res.send(err);
+}
+})
 });
-
+//___________________
+// CREATE 
+//___________________
+app.post('/project1', (req, res) => {
+    Comments.create(req.body, (err, createdComment) =>{
+    if(!err){
+        res.redirect('/project1');
+    } else {
+        res.send(err);
+    }
+    })
+});
+//___________________
+// EDIT 
+//___________________
+app.get('/project1/:id/edit', (req, res) => {
+    Comments.findById(req.params.id, (err, foundComment) => {
+        if(!err){
+            res.render('Edit', {
+                comment: foundComment
+            })
+        } else {
+            res.send(err);
+        }
+    })
+})
+//___________________
+// SHOW 
+//___________________
+app.get('/project1/:id', (req, res) => {
+    Comments.findById(req.params.id, (err, foundComment) => {
+        if(!err){
+            res.render('Show', {
+                comment: foundComment
+            })
+        }else {
+            res.send(err);
+        }
+    })
+})
 //___________________
 //Listener
 //___________________
