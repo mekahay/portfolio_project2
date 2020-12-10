@@ -12,6 +12,7 @@ body {
 }
 h1{
     font-family: 'Playfair Display SC', serif;
+    display: grid;
 }
 nav {
     display: grid;
