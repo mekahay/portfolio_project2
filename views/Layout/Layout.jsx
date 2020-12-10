@@ -5,17 +5,16 @@ class Layout extends React.Component{
         return(
             <html>
                 <link rel="stylesheet" href="/css/styles.css"/>
-                <head>
-                    <h1>Portfolio</h1>
-                </head>
+                <header>
+                    <h1>Mekenzie Hayford</h1>
+                </header>
                 <body>
-                    <h1>{this.props.title}</h1>
                     <nav>
-                        <a href={'/home'}>Home</a>
-                        <a href={"/project1"}>Project 1</a>
-                        <a href={'/about'}>About</a>
-                        <a href={'/contact'}>Contact</a>
-                        <a href={'/resume'}>Resume</a>
+                        <a href={'/home'}>HOME</a>
+                        <a href={"/project1"}>PROJECT 1</a>
+                        <a href={'/about'}>ABOUT</a>
+                        <a href={'/contact'}>CONTACT</a>
+                        {/* <a href={'/resume'}>RESUME</a> */}
                     </nav>
                     {this.props.children}
                 </body>
