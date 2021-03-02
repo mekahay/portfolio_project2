@@ -11,7 +11,7 @@ class Layout extends React.Component{
                 <body>
                     <nav>
                         <a href={'/home'}>HOME</a>
-                        <a href={"/work"}>WORK</a>
+                        <a href={"/project1"}>WORK</a>
                         <a href={'/about'}>ABOUT</a>
                         <a href={'/contact'}>CONTACT</a>
                     </nav>
