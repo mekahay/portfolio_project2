@@ -11,10 +11,10 @@ class Layout extends React.Component{
                 <body>
                     <nav>
                         <a href={'/home'}>HOME</a>
-                        <a href={"/project1"}>PROJECT 1</a>
+                        <a href={"/work"}>WORK</a>
                         <a href={'/about'}>ABOUT</a>
                         <a href={'/contact'}>CONTACT</a>
-                        {/* <a href={'/resume'}>RESUME</a> */}
+                        <a href={'/resume'}>RESUME</a>
                     </nav>
                     {this.props.children}
                 </body>
