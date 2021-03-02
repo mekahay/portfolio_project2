@@ -14,7 +14,6 @@ class Layout extends React.Component{
                         <a href={"/work"}>WORK</a>
                         <a href={'/about'}>ABOUT</a>
                         <a href={'/contact'}>CONTACT</a>
-                        <a href={'/resume'}>RESUME</a>
                     </nav>
                     {this.props.children}
                 </body>
