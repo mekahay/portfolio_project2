@@ -7,7 +7,6 @@ class Home extends React.Component {
         return(
             <Layout>
             <div className="container">
-				<a href="https://mekenziehayfordportfolio.herokuapp.com/ ">Updated Portfolio 2021</a>
             <main class="main-content">
 				<section class="section1">
 					<h1>Software Development</h1>

@@ -15,6 +15,9 @@ class Layout extends React.Component{
                         <a href={'/about'}>ABOUT</a>
                         <a href={'/contact'}>CONTACT</a>
                     </nav>
+                <div>
+                <a href="https://mekenziehayfordportfolio.herokuapp.com/ ">Updated Portfolio 2021</a>
+                </div>
                     {this.props.children}
                 </body>
             </html>
